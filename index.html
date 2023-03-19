@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses Chart Component || Frontend Mentor</title>
+    <link rel="icon" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <div class="chart-wrapper">
+            <!-- TOP -->
+
+            <div class="balance-wrapper">
+                <div class="balance-info">
+                    <span>My balance</span>
+                    <h2 id="total">$921.48</h2>
+                </div>
+
+                <img src="./images/logo.svg" alt="" aria-hidden="true">
+            </div>
+
+            <!-- TOP -->
+
+            <div class="chart-info">
+                <h2>Spending - Last 7 days</h2>
+
+                <canvas id="expenseChart"></canvas>
+
+
+                <div class="total-expense-wrapper">
+                    <div class="total-info">
+                        <span>Total this month</span>
+                        <h2 id="totalExpense">$478.33</h2>
+                    </div>
+
+                    <div class="last-month-wrapper">
+                        <span id="percent">+2.4%</span>
+                        <span>from last month</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
