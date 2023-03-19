@@ -1,66 +1,58 @@
 fetch("data.json")
-  .then((response) => response.json())
-  .then((data) => {
-    var labels = data.map((obj) => obj.day);
-    var amounts = data.map((obj) => obj.amount);
+    .then((response) => response.json())
+    .then((data) => {
+        const labels = data.map((obj) => obj.day);
+        const amounts = data.map((obj) => obj.amount);
 
-    var ctx = document.getElementById("expenseChart").getContext("2d");
+        const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const today = new Date();
+        const currentDayOfWeek = daysOfWeek[today.getDay()];
 
-    var newChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            data: amounts,
-            backgroundColor: [
-              "hsl(10, 79%, 65%)",
-              "hsl(10, 79%, 65%)",
-              "hsl(186, 34%, 60%)",
-              "hsl(10, 79%, 65%)",
-              "hsl(10, 79%, 65%)",
-              "hsl(10, 79%, 65%)",
-              "hsl(10, 79%, 65%)",
-            ],
-            borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 0,
-            borderRadius: 5,
+        const backgroundColors = daysOfWeek.map((day) =>
+            day === currentDayOfWeek ? "hsl(186, 34%, 60%)" : "hsl(10, 79%, 65%)"
+        );
 
-            hoverBackgroundColor: [
-              "hsla(10, 79%, 65%, 0.8)",
-              "hsla(10, 79%, 65%, 0.8)",
-              "hsla(186, 34%, 60%,0.8)",
-              "hsla(10, 79%, 65%, 0.8)",
-              "hsla(10, 79%, 65%, 0.8)",
-              "hsla(10, 79%, 65%, 0.8)",
-              "hsla(10, 79%, 65%, 0.8)",
-            ],
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-        scales: {
-          y: {
-            display: false,
+        const hoverBackgroundColors = daysOfWeek.map((day) =>
+            day === currentDayOfWeek ? "hsla(186, 34%, 60%, 0.8)" : "hsla(10, 79%, 65%, 0.8)"
+        );
 
-            grid: {
-              display: false,
+        const ctx = document.getElementById("expenseChart").getContext("2d");
+
+        const newChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: daysOfWeek,
+                datasets: [
+                    {
+                        data: amounts,
+                        backgroundColor: backgroundColors,
+                        hoverBackgroundColor: hoverBackgroundColors,
+                        borderColor: "rgba(255, 99, 132, 1)",
+                        borderWidth: 0,
+                        borderRadius: 5,
+                    },
+                ],
             },
-          },
-
-          x: {
-            display: true,
-
-            grid: {
-              display: false,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+                scales: {
+                    y: {
+                        display: false,
+                        grid: {
+                            display: false,
+                        },
+                    },
+                    x: {
+                        display: true,
+                        grid: {
+                            display: false,
+                        },
+                    },
+                },
             },
-          },
-        },
-      },
+        });
     });
-  });
