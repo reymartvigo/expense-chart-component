@@ -108,6 +108,11 @@ main {
   main {
     .chart-wrapper {
       width: 30rem;
+
+  .chart-info {
+        padding: 2rem 2rem;
+        background-color: variable.$Verypaleorange;
+      }
     }
   }
 }
