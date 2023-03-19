@@ -82,43 +82,12 @@ main .chart-wrapper .total-expense-wrapper .last-month-wrapper #percent {
 
 @media screen and (min-width: 425px) {
   main .chart-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
     width: 20rem;
-    height: auto;
   }
-  main .chart-wrapper .balance-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: hsl(10, 79%, 65%);
-    color: hsl(33, 100%, 98%);
-  }
-  main .chart-wrapper .balance-wrapper .balance-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  main .chart-wrapper .balance-wrapper .balance-info h2 {
-    letter-spacing: 0.5px;
-  }
-  main .chart-wrapper .chart-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-radius: 0.5rem;
-    padding: 2rem 1rem 1rem;
-    background-color: hsl(33, 100%, 98%);
-  }
-  main .chart-wrapper .chart-info h2 {
-    color: hsl(25, 47%, 15%);
-  }
-  main .chart-wrapper .chart-info canvas {
-    width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  main .chart-wrapper {
+    width: 30rem;
   }
 }
 * {
